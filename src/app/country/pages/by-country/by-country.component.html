@@ -1,1 +1,18 @@
-<p>by-country works!</p>
+<h2>Por pais</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <app-country-input (onEnter)="search($event)" (onDebounce)="suggest($event)">
+        </app-country-input>
+    </div>
+</div>
+
+<hr>
+
+<div class="alert alert-danger" *ngIf="error"> No se encontro {{termino}}</div>
+
+<div class="row" *ngIf="!error">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+    </div>
+</div>
